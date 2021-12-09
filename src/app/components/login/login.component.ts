@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
 	onSubmit(): void
 	{
 		console.log('Formulario login: ', this.formularioLogin.value);
-		this.router.navigateByUrl('home');
+		this.router.navigateByUrl('');
 	}
 
 }
