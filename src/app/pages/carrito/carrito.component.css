@@ -1,0 +1,22 @@
+.section-titulo{
+    font-size: 22px;
+    font-weight: 600;
+    color: #FFF;
+    margin: 10px 0;
+}
+
+.btn-delete{
+    padding: 0 10px;
+    height: 35px;
+    border: 0;
+    border-radius: 4px;
+    color: #D63333;
+    font-weight: 700;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 100ms ease-in-out;
+}
+.btn-delete:hover{
+    color: #FFF;
+    background-color: #D83232;
+}

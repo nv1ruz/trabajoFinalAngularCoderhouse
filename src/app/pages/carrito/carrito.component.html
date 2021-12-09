@@ -1,0 +1,30 @@
+<p class="section-titulo">Mi carrito</p>
+
+<div class="table-basic-wrapper table-color">
+    <table class="table-basic">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titulo</th>
+                <th>Año</th>
+                <th>Accion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pelicula of _carritoService.carrito.productos">
+                <td>
+                    <span>{{ pelicula.id }}</span>
+                </td>
+                <td>
+                    <span>{{ pelicula.titulo }}</span>
+                </td>
+                <td>
+                    <span>{{ pelicula.anio }}</span>
+                </td>
+                <td>
+                  <button type="button" class="btn-delete" (click)="_carritoService.quitarProducto(pelicula)">Quitar</button>  
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
