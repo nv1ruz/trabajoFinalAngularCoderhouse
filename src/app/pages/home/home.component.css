@@ -1,0 +1,7 @@
+.app-wrapper{
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 56px);
+    padding-top: 56px;
+    overflow-y: auto;
+}
