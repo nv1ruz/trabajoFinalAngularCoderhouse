@@ -1,5 +1,27 @@
-<form>
-    <div class="form-login-header">
-        <p class="form-login-title">Iniciar sesión</p>
+<form (submit)="onSubmit()" [formGroup]="formularioLogin">
+    <div class="formulario-login-header">
+        <p class="formulario-titulo">Iniciar sesión</p>
+    </div>
+    <div class="formulario-login-body">
+        <div class="form-control-container">
+            <div class="form-control-group mb-10">
+                <p class="form-control-label">Email *</p>
+                <input type="email" class="form-control" formControlName="email">
+                <div class="invalid-feedback" *ngIf="formularioLogin.get('email')!.touched || formularioLogin.get('email')?.dirty">
+                    <p *ngIf="formularioLogin.get('email')!.errors?.required">Es un campo requerido</p>
+                    <p *ngIf="formularioLogin.get('email')!.errors?.pattern">Por favor introduzca un email válido</p>
+                </div>
+            </div>
+            <div class="form-control-group mb-10">
+                <p class="form-control-label">Contraseña *</p>
+                <input type="password" class="form-control" formControlName="password">
+                <div class="invalid-feedback" *ngIf="formularioLogin.get('password')!.touched || formularioLogin.get('password')?.dirty">
+                    <p *ngIf="formularioLogin.get('password')!.errors?.required">Es un campo requerido</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="formulario-login-footer">
+        <button type="submit" class="btn-primary w-100" [disabled]="formularioLogin.invalid">Ingresar</button>
     </div>
 </form>
