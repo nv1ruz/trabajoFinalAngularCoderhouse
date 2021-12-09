@@ -62,6 +62,45 @@ input.form-control:read-only{
 
 /* 
 
+    Buttons
+
+*/
+
+/* Primary */
+
+.btn-primary{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    height: 35px;
+    font-weight: 700;
+    color: #F7F8F8;
+    background-color: #1E272E;
+    border: 1px solid #2B343B;
+    border-radius: 4px;
+    transition: all ease 0.1s;
+}
+.btn-primary:hover{
+    color: #FFF;
+    background-color: #5771FF;
+    border-color: #5771FF;
+    cursor: pointer;
+}
+.btn-primary:disabled{
+    color: #6F7782;
+    background-color: transparent;
+    border-color: #2B343B;
+    cursor: auto;
+}
+.btn-primary--active{
+    color: #FFF;
+    background-color: #5771FF;
+    border-color: #5771FF;
+}
+
+/* 
+
     Utilities
 
 */
