@@ -1,12 +1,23 @@
 <section class="row section-login">
 
     <div class="col-12 col-md-7 space-1">
-        <!-- luego se colocará algun mensaje de bienvenida -->
+        <div class="mensaje">
+            <h1 class="mensaje-titulo">Bienvenid@ a <span class="mensaje-titulo--primary">Coderhouse</span></h1>
+        </div>
     </div>
 
     <div class="col-12 col-md-5 space-2">
         <div class="formulario-container">
-            <app-login></app-login>
+            <app-tabs [tabs]="tabs" (obtenerTabElegido)="tabSeleccionado = $event"></app-tabs>
+
+            <ng-container *ngIf="tabSeleccionado && tabSeleccionado.id == 1">
+                <app-login></app-login>
+            </ng-container>
+            
+            <ng-container *ngIf="tabSeleccionado && tabSeleccionado.id == 2">
+                <app-registro></app-registro>
+            </ng-container>
+            
         </div>
     </div>
 

@@ -16,7 +16,19 @@
     align-items: center;
     height: 100%;
 }
+.mensaje{
+    box-sizing: border-box;
+    padding: 25px;
+    width: 100%;
+}
+.mensaje-titulo{
+    margin-bottom: 30px;
+    font-size: 3rem;
+    color: #FFF;
+    max-width: 10em;
+}
 .formulario-container{
     padding: 20px;
     width: 100%;
+    min-height: 460px;
 }
