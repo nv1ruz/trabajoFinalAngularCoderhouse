@@ -2,6 +2,13 @@
     PRODUCTOS
 */
 
+.section-titulo{
+    font-size: 22px;
+    font-weight: 600;
+    color: #FFF;
+    margin: 10px 0;
+}
+
 .section-productos{
     display: flex;
     flex-wrap: wrap;
