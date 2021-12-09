@@ -1,5 +1,67 @@
 /* 
 
+    Form controls
+
+*/
+
+.form-control-container{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.form-control-group{
+    width: 100%;
+}
+.form-control-label{
+    margin-bottom: 3px;
+    color: #D7D8D8;
+    font-size: 14px;
+    font-weight: 500;
+}
+.form-control{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 5px;
+    min-height: 36px;
+    font-size: 16px;
+    color: #FFF;
+    background: #27282C;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    outline: none;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+input.form-control:read-only{
+    border-color: transparent;
+    background: #27282C !important;
+    box-shadow: none;
+}
+.form-control::placeholder{
+    color: #70737c;
+}
+.form-control:hover{
+    border: 1px solid #CED4DA;
+    transition: border-color 60ms;
+}
+.form-control:focus{
+    background: transparent;
+    border: 1px solid #006DE2;
+    box-shadow: 0 0 0 0.15rem rgb(131 13 253 / 25%);
+    transition: border-color 60ms;
+}
+.form-control option{
+    font-weight: normal;
+    background-color: #1E1F22;
+}
+.invalid-feedback{
+    font-size: 12px;
+    color: #C53644;
+}
+.invalid-feedback p{
+    margin-top: 2px;
+}
+
+/* 
+
     Utilities
 
 */
