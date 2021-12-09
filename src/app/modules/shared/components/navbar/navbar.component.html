@@ -2,7 +2,10 @@
     <!-- <div class="navbar__btn-sidebar" >
         <span class="material-icons-outlined">menu</span>
     </div> -->
-    <div class="navbar-item">
+    <div class="navbar-item" style="cursor: pointer;" (click)="irHome()">
         <p class="navbar__title">{{ title }}</p>
+    </div>
+    <div class="navbar-item">
+        <button type="button" class="btn-primary" (click)="irCarrito()">Mi carrito</button>
     </div>
 </div>
