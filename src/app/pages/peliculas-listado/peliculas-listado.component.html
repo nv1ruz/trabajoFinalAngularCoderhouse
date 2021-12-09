@@ -1,0 +1,16 @@
+<section class="section-productos">
+    <div class="producto" *ngFor="let pelicula of peliculas">
+        <div class="producto-body">
+            <div class="producto__imagen-wrapper">
+                <img class="producto__imagen" src="{{ pelicula.portada }}" alt="imagen_producto">
+            </div>
+            <div class="producto-info">
+                <p class="producto__nombre">{{ pelicula.titulo }}</p>
+                <p class="producto__descripcion">Año: {{ pelicula.anio }}</p>
+            </div>
+        </div>
+        <div class="producto-footer">
+            <button type="button" class="btn-view w-100" (click)="verDetallePelicula(pelicula.id)">Ver detalle</button>
+        </div>
+    </div>
+</section>

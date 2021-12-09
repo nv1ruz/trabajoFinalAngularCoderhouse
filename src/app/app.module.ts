@@ -11,6 +11,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { AutenticacionComponent } from './pages/autenticacion/autenticacion.component';
+import { PeliculaDetalleComponent } from './pages/pelicula-detalle/pelicula-detalle.component';
+import { PeliculasListadoComponent } from './pages/peliculas-listado/peliculas-listado.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { AutenticacionComponent } from './pages/autenticacion/autenticacion.comp
     HomeComponent,
     LoginComponent,
     RegistroComponent,
-    AutenticacionComponent
+    AutenticacionComponent,
+    PeliculaDetalleComponent,
+    PeliculasListadoComponent
   ],
   imports: [
     BrowserModule,
