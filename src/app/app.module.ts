@@ -13,6 +13,7 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { AutenticacionComponent } from './pages/autenticacion/autenticacion.component';
 import { PeliculaDetalleComponent } from './pages/pelicula-detalle/pelicula-detalle.component';
 import { PeliculasListadoComponent } from './pages/peliculas-listado/peliculas-listado.component';
+import { CarritoComponent } from './pages/carrito/carrito.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { PeliculasListadoComponent } from './pages/peliculas-listado/peliculas-l
     RegistroComponent,
     AutenticacionComponent,
     PeliculaDetalleComponent,
-    PeliculasListadoComponent
+    PeliculasListadoComponent,
+    CarritoComponent
   ],
   imports: [
     BrowserModule,
