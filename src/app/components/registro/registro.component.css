@@ -1,0 +1,25 @@
+.formulario-registrar-header{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.formulario-registrar-body{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 10px;
+    min-height: 50px;
+}
+.formulario-titulo{
+    font-size: 14px;
+    font-weight: 600;
+    color: #FFF;
+}
+.formulario-registrar-footer{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
