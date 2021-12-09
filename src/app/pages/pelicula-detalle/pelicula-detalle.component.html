@@ -1,1 +1,22 @@
-<p>pelicula-detalle works!</p>
+<p class="section-titulo">Detalle de película</p>
+
+<div class="producto" *ngIf="pelicula">
+    <div class="producto-body row">
+        <div class="col-12 col-md-4">
+            <div class="producto__imagen-wrapper">
+                <img class="producto__imagen" src="{{ pelicula.portada }}" alt="imagen_producto">
+            </div>
+        </div>
+        <div class="col-12 col-md-8">
+            <div class="producto-info mb-10">
+                <p class="producto__nombre">{{ pelicula.titulo }}</p>
+                <p class="producto__descripcion">Año: {{ pelicula.anio }}</p>
+            </div>
+            <p class="form-control-label">Sinopsis</p>
+            <textarea class="form-control" cols="30" rows="10" readonly>{{ pelicula.sinopsis }}</textarea>
+        </div>
+    </div>
+    <div class="producto-footer">
+        <button type="button" class="btn-primary w-100" (click)="volver()">Volver</button>
+    </div>
+</div>
