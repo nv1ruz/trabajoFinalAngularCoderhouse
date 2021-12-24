@@ -11,12 +11,12 @@ import { IUser } from '../interfaces/users-api.interface';
 })
 export class UsersApiService {
     private base_url_api_iptteam: string = environment.base_url_api_peliculas;
-    private _user: IUser;
+    private _user?: IUser;
 
     constructor(private http: HttpClient) {}
 
     get user(): IUser {
-        return this.user;
+        return this._user;
     }
 
     /*

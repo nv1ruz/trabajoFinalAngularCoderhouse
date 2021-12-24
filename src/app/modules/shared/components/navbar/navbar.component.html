@@ -5,7 +5,8 @@
     <div class="navbar-item" style="cursor: pointer;" (click)="irHome()">
         <p class="navbar__title">{{ title }}</p>
     </div>
-    <div class="navbar-item">
-        <button type="button" class="btn-primary" (click)="irCarrito()">Mi carrito</button>
+    <div class="navbar-item d-flex">
+        <button type="button" class="btn-primary" (click)="goToAdmin()" *ngIf="_usersApi.user?.role == 'ADMIN'">Panel admin</button>
+        <button type="button" class="btn-primary ml-5" (click)="irCarrito()">Mi carrito</button>
     </div>
 </div>
