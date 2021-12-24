@@ -41,4 +41,21 @@ export class UsersApiService {
       })
     );
   }
+
+  /*
+ 	Nota: La validación de que ya exista un usuario con el email ingresado 
+	se realizará en otro práctico... 
+  */
+  public register(email: string, pass: string): Observable<IUser> {
+    const url = `${this.base_url_api_iptteam}/users`;
+    const body = {
+      email,
+      first_name: email.substring(0, email.indexOf('@', 1)),
+      last_name: '',
+      password: pass,
+      role: 'USER',
+    };
+
+    return this.http.post<IUser>(url, body);
+  }
 }
