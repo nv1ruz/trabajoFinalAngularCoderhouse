@@ -6,6 +6,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { UsersApiService } from 'src/app/data/services/users-api.service';
 
 @Component({
   selector: 'app-login',
@@ -15,11 +17,20 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   private isEmail: RegExp = /^\S+@\S+\.\S+$/;
   public formularioLogin!: FormGroup;
+  private loginSuscripcion?: Subscription;
 
-  constructor(private fb: FormBuilder, private router: Router) {}
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private _usersApi: UsersApiService
+  ) {}
 
   ngOnInit(): void {
     this.inicializarFormularioLogin();
+  }
+
+  ngOnDestroy(): void {
+    if (this.loginSuscripcion) this.loginSuscripcion.unsubscribe();
   }
 
   //
@@ -35,7 +46,16 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log('Formulario login: ', this.formularioLogin.value);
-    this.router.navigateByUrl('');
+    if (this.formularioLogin.valid) {
+      this.loginSuscripcion = this._usersApi
+        .login(
+          this.formularioLogin.controls['email'].value,
+          this.formularioLogin.controls['password'].value
+        )
+        .subscribe((response) => {
+          console.log(response);
+          this.router.navigateByUrl('');
+        });
+    }
   }
 }
