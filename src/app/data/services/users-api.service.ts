@@ -7,55 +7,61 @@ import { environment } from 'src/environments/environment';
 import { IUser } from '../interfaces/users-api.interface';
 
 @Injectable({
-  providedIn: 'root',
+    providedIn: 'root',
 })
 export class UsersApiService {
-  private base_url_api_iptteam: string = environment.base_url_api_peliculas;
+    private base_url_api_iptteam: string = environment.base_url_api_peliculas;
+    private _user: IUser;
 
-  constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) {}
 
-  /*
+    get user(): IUser {
+        return this.user;
+    }
+
+    /*
 	Nota: no he encontrado la forma de hacer en MockApi un endpoint que reciba 
 	por un post el usuario y contraseña, y donde valide si el usuario existe
 	me devuelva los datos del usuario sin la contraseña. 
   */
-  public login(email: string, pass: string): Observable<IUser> {
-    let userId: number = 0;
+    public login(email: string, pass: string): Observable<IUser> {
+        let userId: number = 0;
 
-    if (email == 'braian.martz@gmail.com' && pass == 'coder') {
-      // usuario con rol ADMIN
-      userId = 1;
-    } else if (email == 'usuario@gmail.com' && pass == 'coder') {
-      // usuario con rol USER
-      userId = 2;
-    } else {
-      userId = 0;
+        if (email == 'braian.martz@gmail.com' && pass == 'coder') {
+            // usuario con rol ADMIN
+            userId = 1;
+        } else if (email == 'usuario@gmail.com' && pass == 'coder') {
+            // usuario con rol USER
+            userId = 2;
+        } else {
+            userId = 0;
+        }
+
+        const url = `${this.base_url_api_iptteam}/users/${userId}`;
+
+        return this.http.get<IUser>(url).pipe(
+            tap((response) => {
+                // simula un token que devuelve la petición
+                this._user = response;
+                localStorage.setItem('token', 'j2143239543u9heru9gfdnbjn');
+            })
+        );
     }
 
-    const url = `${this.base_url_api_iptteam}/users/${userId}`;
-
-    return this.http.get<IUser>(url).pipe(
-      tap((response) => {
-        // simula un token que devuelve la petición
-        localStorage.setItem('token', 'j2143239543u9heru9gfdnbjn');
-      })
-    );
-  }
-
-  /*
+    /*
  	Nota: La validación de que ya exista un usuario con el email ingresado 
 	se realizará en otro práctico... 
   */
-  public register(email: string, pass: string): Observable<IUser> {
-    const url = `${this.base_url_api_iptteam}/users`;
-    const body = {
-      email,
-      first_name: email.substring(0, email.indexOf('@', 1)),
-      last_name: '',
-      password: pass,
-      role: 'USER',
-    };
+    public register(email: string, pass: string): Observable<IUser> {
+        const url = `${this.base_url_api_iptteam}/users`;
+        const body = {
+            email,
+            first_name: email.substring(0, email.indexOf('@', 1)),
+            last_name: '',
+            password: pass,
+            role: 'USER',
+        };
 
-    return this.http.post<IUser>(url, body);
-  }
+        return this.http.post<IUser>(url, body);
+    }
 }
