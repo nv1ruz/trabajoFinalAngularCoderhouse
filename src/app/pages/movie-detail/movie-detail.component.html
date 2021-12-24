@@ -1,0 +1,22 @@
+<p class="section-title">Detalle de película</p>
+
+<div class="producto" *ngIf="movie">
+    <div class="producto-body row">
+        <div class="col-12 col-md-4">
+            <div class="producto__imagen-wrapper">
+                <img class="producto__imagen" src="{{ movie.image }}" alt="imagen_producto">
+            </div>
+        </div>
+        <div class="col-12 col-md-8">
+            <div class="producto-info mb-10">
+                <p class="producto__nombre">{{ movie.title }}</p>
+                <p class="producto__descripcion">Año: {{ movie.year }}</p>
+            </div>
+            <p class="form-control-label">Sinopsis</p>
+            <textarea class="form-control" cols="30" rows="10" readonly>{{ movie.description }}</textarea>
+        </div>
+    </div>
+    <div class="producto-footer">
+        <button type="button" class="btn-primary w-100" (click)="goBack()">Volver</button>
+    </div>
+</div>
