@@ -13,8 +13,8 @@
         </div>
         <div class="producto-footer">
             <button type="button" class="btn-primary w-100 mr-10" (click)="verDetallePelicula(pelicula.id)">Ver detalle</button>
-            <button type="button" class="btn-view w-100" (click)="agregarProducto(pelicula)" *ngIf="!verificarProductoEnCarrito(pelicula.id)">+ Agregar</button>
-            <button type="button" class="btn-delete w-100" (click)="quitarProducto(pelicula)" *ngIf="verificarProductoEnCarrito(pelicula.id)">- Quitar</button>
+            <!-- <button type="button" class="btn-view w-100" (click)="agregarProducto(pelicula)" *ngIf="!verificarProductoEnCarrito(pelicula.id)">+ Agregar</button>
+            <button type="button" class="btn-delete w-100" (click)="quitarProducto(pelicula)" *ngIf="verificarProductoEnCarrito(pelicula.id)">- Quitar</button> -->
         </div>
     </div>
 </section>
