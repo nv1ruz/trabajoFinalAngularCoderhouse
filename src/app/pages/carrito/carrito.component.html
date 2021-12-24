@@ -11,18 +11,18 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let pelicula of _carritoService.carrito.productos">
+            <tr *ngFor="let movie of _carritoService.carrito.productos">
                 <td>
-                    <span>{{ pelicula.id }}</span>
+                    <span>{{ movie.id }}</span>
                 </td>
                 <td>
-                    <span>{{ pelicula.titulo }}</span>
+                    <span>{{ movie.title }}</span>
                 </td>
                 <td>
-                    <span>{{ pelicula.anio }}</span>
+                    <span>{{ movie.year }}</span>
                 </td>
                 <td>
-                  <button type="button" class="btn-delete" (click)="_carritoService.quitarProducto(pelicula)">Quitar</button>  
+                  <button type="button" class="btn-delete" (click)="_carritoService.quitarProducto(movie)">Quitar</button>  
                 </td>
             </tr>
         </tbody>
