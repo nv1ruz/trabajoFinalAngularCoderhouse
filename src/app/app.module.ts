@@ -14,6 +14,8 @@ import { AutenticacionComponent } from './pages/autenticacion/autenticacion.comp
 import { PeliculaDetalleComponent } from './pages/pelicula-detalle/pelicula-detalle.component';
 import { PeliculasListadoComponent } from './pages/peliculas-listado/peliculas-listado.component';
 import { CarritoComponent } from './pages/carrito/carrito.component';
+import { MoviesListComponent } from './pages/movies-list/movies-list.component';
+import { MovieDetailComponent } from './pages/movie-detail/movie-detail.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { CarritoComponent } from './pages/carrito/carrito.component';
     AutenticacionComponent,
     PeliculaDetalleComponent,
     PeliculasListadoComponent,
-    CarritoComponent
+    CarritoComponent,
+    MoviesListComponent,
+    MovieDetailComponent
   ],
   imports: [
     BrowserModule,
