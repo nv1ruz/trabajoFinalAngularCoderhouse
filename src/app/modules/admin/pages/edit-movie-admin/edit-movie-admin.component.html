@@ -1,0 +1,57 @@
+<p class="section-title">Editar película</p>
+
+
+<form [formGroup]="formMovie" (ngSubmit)="onSubmit()">
+
+	<div class="form-control-container">
+
+		<div class="form-control-group mb-5 mr-10">
+			<p class="form-control-label">Id *</p>
+			<input type="text" class="form-control" formControlName="id" readonly>
+			<div class="invalid-feedback">
+				<p *ngIf="formMovie.get('id').errors?.required">Es un campo requerido</p>
+			</div>
+		</div>
+
+		<div class="form-control-group mb-5 mr-10">
+			<p class="form-control-label">Título *</p>
+			<input type="text" class="form-control" formControlName="title">
+			<div class="invalid-feedback">
+				<p *ngIf="formMovie.get('title').errors?.required">Es un campo requerido</p>
+			</div>
+		</div>
+
+		<div class="form-control-group mb-5 mr-10">
+			<p class="form-control-label">Descripción *</p>
+			<textarea cols="30" rows="3" class="form-control" formControlName="description"></textarea>
+			<div class="invalid-feedback">
+				<p *ngIf="formMovie.get('description').errors?.required">Es un campo requerido</p>
+			</div>
+		</div>
+
+		<div class="form-control-group mb-5 mr-10">
+			<p class="form-control-label">Rating *</p>
+			<input type="number" class="form-control" formControlName="rating" min="0" max="10">
+			<div class="invalid-feedback">
+				<p *ngIf="formMovie.get('rating').errors?.required">Es un campo requerido</p>
+			</div>
+		</div>
+
+		<div class="form-control-group mb-5 mr-10">
+			<p class="form-control-label">Año *</p>
+			<input type="number" class="form-control" formControlName="year" min="0">
+			<div class="invalid-feedback">
+				<p *ngIf="formMovie.get('year').errors?.required">Es un campo requerido</p>
+			</div>
+		</div>
+
+		<div class="form-control-group mb-5 mr-10">
+			<p class="form-control-label">Link imagen</p>
+			<input type="text" class="form-control" formControlName="image">
+		</div>
+
+	</div>
+
+	<button type="submit" class="btn-primary w-100" [disabled]="formMovie.invalid">Guardar cambios</button>
+
+</form>

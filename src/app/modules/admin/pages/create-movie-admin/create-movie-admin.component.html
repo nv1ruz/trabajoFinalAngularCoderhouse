@@ -1,0 +1,48 @@
+<p class="section-title">Nueva película</p>
+
+<form [formGroup]="formNewMovie" (ngSubmit)="onSubmit()">
+
+	<div class="form-control-container">
+
+		<div class="form-control-group mb-5 mr-10">
+			<p class="form-control-label">Título *</p>
+			<input type="text" class="form-control" formControlName="title">
+			<div class="invalid-feedback">
+				<p *ngIf="formNewMovie.get('title').errors?.required">Es un campo requerido</p>
+			</div>
+		</div>
+
+		<div class="form-control-group mb-5 mr-10">
+			<p class="form-control-label">Descripción *</p>
+			<textarea cols="30" rows="3" class="form-control" formControlName="description"></textarea>
+			<div class="invalid-feedback">
+				<p *ngIf="formNewMovie.get('description').errors?.required">Es un campo requerido</p>
+			</div>
+		</div>
+
+		<div class="form-control-group mb-5 mr-10">
+			<p class="form-control-label">Rating *</p>
+			<input type="number" class="form-control" formControlName="rating" min="0" max="10">
+			<div class="invalid-feedback">
+				<p *ngIf="formNewMovie.get('rating').errors?.required">Es un campo requerido</p>
+			</div>
+		</div>
+
+		<div class="form-control-group mb-5 mr-10">
+			<p class="form-control-label">Año *</p>
+			<input type="number" class="form-control" formControlName="year" min="0">
+			<div class="invalid-feedback">
+				<p *ngIf="formNewMovie.get('year').errors?.required">Es un campo requerido</p>
+			</div>
+		</div>
+
+		<div class="form-control-group mb-5 mr-10">
+			<p class="form-control-label">Link imagen</p>
+			<input type="text" class="form-control" formControlName="image">
+		</div>
+
+	</div>
+
+	<button type="submit" class="btn-primary w-100" [disabled]="formNewMovie.invalid">Crear película</button>
+
+</form>

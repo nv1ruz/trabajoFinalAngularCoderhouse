@@ -7,26 +7,29 @@ import { PeliculaDetalleComponent } from './pages/pelicula-detalle/pelicula-deta
 import { PeliculasListadoComponent } from './pages/peliculas-listado/peliculas-listado.component';
 import { CarritoComponent } from './pages/carrito/carrito.component';
 
-
 const routes: Routes = [
-
-	{ path: 'ingresar', component: AutenticacionComponent },
-	{ 
-		path: '', component: HomeComponent,
-		children: [
-			{ path: 'peliculas', component: PeliculasListadoComponent },
-			{ path: 'peliculas/:pelicula_id', component: PeliculaDetalleComponent },
-			{ path: 'carrito', component: CarritoComponent },
-			{ path: '', pathMatch: 'full', redirectTo: 'peliculas' }
-		]
-	},
-	{ path: '**', pathMatch: 'full', redirectTo: '' }
+  { path: 'ingresar', component: AutenticacionComponent },
+  {
+    path: '',
+    component: HomeComponent,
+    children: [
+      { path: 'peliculas', component: PeliculasListadoComponent },
+      { path: 'peliculas/:pelicula_id', component: PeliculaDetalleComponent },
+      { path: 'carrito', component: CarritoComponent },
+      {
+        path: 'admin',
+        loadChildren: () =>
+          import('./modules/admin/admin.module').then((m) => m.AdminModule),
+      },
+      { path: '', pathMatch: 'full', redirectTo: 'peliculas' },
+    ],
+  },
+  { path: '**', pathMatch: 'full', redirectTo: '' },
 ];
 
-
 @NgModule({
-	declarations: [],
-	imports: [RouterModule.forRoot(routes)],
-	exports: [RouterModule]
+  declarations: [],
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
