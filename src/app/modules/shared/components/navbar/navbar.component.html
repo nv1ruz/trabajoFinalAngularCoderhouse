@@ -2,11 +2,15 @@
     <!-- <div class="navbar__btn-sidebar" >
         <span class="material-icons-outlined">menu</span>
     </div> -->
-    <div class="navbar-item" style="cursor: pointer;" (click)="irHome()">
+    <div class="navbar-item" style="cursor: pointer;" (click)="goToHome()">
         <p class="navbar__title">{{ title }}</p>
     </div>
     <div class="navbar-item d-flex">
-        <button type="button" class="btn-primary" (click)="goToAdmin()" *ngIf="_usersApi.user?.role == 'ADMIN'">Panel admin</button>
+        <button type="button" class="btn-primary" (click)="goToAdminMovies()" *ngIf="_usersApi.user?.role == 'ADMIN'">Admin peliculas</button>
+        <button type="button" class="btn-primary ml-5" style="margin-right: 30px" (click)="goToAdminAllCarts()" *ngIf="_usersApi.user?.role == 'ADMIN'">Admin pedidos</button>
+        <button type="button" class="btn-primary ml-5" (click)="goToHome()">Inicio</button>
+        <button type="button" class="btn-primary ml-5" (click)="goToMyCarts()">Mis pedidos</button>
         <button type="button" class="btn-primary ml-5" (click)="irCarrito()">Mi carrito</button>
+        <button type="button" class="btn-secondary ml-5" (click)="this._usersApi.logout()">Cerrar sesión</button>
     </div>
 </div>

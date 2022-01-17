@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { Observable, of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 
 import { environment } from 'src/environments/environment';
 import { IUser } from '../interfaces/users-api.interface';
@@ -13,7 +14,7 @@ export class UsersApiService {
     private base_url_api_iptteam: string = environment.base_url_api_peliculas;
     private _user?: IUser;
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient, private router: Router) {}
 
     get user(): IUser {
         return this._user;
@@ -24,27 +25,23 @@ export class UsersApiService {
 	por un post el usuario y contraseña, y donde valide si el usuario existe
 	me devuelva los datos del usuario sin la contraseña. 
   */
-    public login(email: string, pass: string): Observable<IUser> {
-        let userId: number = 0;
+    public login(email: string, pass: string): Observable<boolean> {
+        const url = `${this.base_url_api_iptteam}/users`;
 
-        if (email == 'braian.martz@gmail.com' && pass == 'coder') {
-            // usuario con rol ADMIN
-            userId = 1;
-        } else if (email == 'usuario@gmail.com' && pass == 'coder') {
-            // usuario con rol USER
-            userId = 2;
-        } else {
-            userId = 0;
-        }
+        return this.http.get<IUser[]>(url).pipe(
+            map((response) => {
+                const usuario = response.find((item) => item.email == email);
+                if (!usuario || usuario.password !== pass) {
+                    return false;
+                }
 
-        const url = `${this.base_url_api_iptteam}/users/${userId}`;
-
-        return this.http.get<IUser>(url).pipe(
-            tap((response) => {
-                // simula un token que devuelve la petición
-                this._user = response;
-                localStorage.setItem('token', 'j2143239543u9heru9gfdnbjn');
-            })
+                this._user = usuario;
+                localStorage.setItem('USER_EMAIL', usuario.email);
+                localStorage.setItem('USER_PASS', usuario.password);
+                localStorage.setItem('ACCESS_TOKEN', 'j2143239543u9heru9gfdnbjn');
+                return true;
+            }),
+            catchError((error) => of(false))
         );
     }
 
@@ -62,6 +59,18 @@ export class UsersApiService {
             role: 'USER',
         };
 
-        return this.http.post<IUser>(url, body);
+        return this.http.post<IUser>(url, body).pipe(
+            tap((response) => {
+                this._user = response;
+                localStorage.setItem('USER_EMAIL', response.email);
+                localStorage.setItem('USER_PASS', response.password);
+                localStorage.setItem('ACCESS_TOKEN', 'j2143239543u9heru9gfdnbjn');
+            })
+        );
+    }
+
+    public logout(): void {
+        localStorage.removeItem('ACCESS_TOKEN');
+        this.router.navigateByUrl('ingresar');
     }
 }

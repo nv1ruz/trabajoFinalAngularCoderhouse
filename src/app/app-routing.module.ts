@@ -6,22 +6,24 @@ import { AutenticacionComponent } from './pages/autenticacion/autenticacion.comp
 import { CarritoComponent } from './pages/carrito/carrito.component';
 import { MoviesListComponent } from './pages/movies-list/movies-list.component';
 import { MovieDetailComponent } from './pages/movie-detail/movie-detail.component';
-// import { PeliculaDetalleComponent } from './pages/pelicula-detalle/pelicula-detalle.component';
-// import { PeliculasListadoComponent } from './pages/peliculas-listado/peliculas-listado.component';
+import { MycartsComponent } from './pages/mycarts/mycarts.component';
+import { AuthGuard } from './guards/auth.guard';
+import { AdminGuard } from './guards/admin.guard';
 
 const routes: Routes = [
     { path: 'ingresar', component: AutenticacionComponent },
     {
         path: '',
         component: HomeComponent,
+        canActivate: [AuthGuard],
         children: [
-            // { path: 'peliculas', component: PeliculasListadoComponent },
-            // { path: 'peliculas/:pelicula_id', component: PeliculaDetalleComponent },
             { path: 'movies', component: MoviesListComponent },
             { path: 'movies/:movieId', component: MovieDetailComponent },
             { path: 'cart', component: CarritoComponent },
+            { path: 'my_carts', component: MycartsComponent },
             {
                 path: 'admin',
+                canActivate: [AdminGuard],
                 loadChildren: () =>
                     import('./modules/admin/admin.module').then((m) => m.AdminModule),
             },

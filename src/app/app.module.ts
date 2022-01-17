@@ -16,6 +16,7 @@ import { PeliculasListadoComponent } from './pages/peliculas-listado/peliculas-l
 import { CarritoComponent } from './pages/carrito/carrito.component';
 import { MoviesListComponent } from './pages/movies-list/movies-list.component';
 import { MovieDetailComponent } from './pages/movie-detail/movie-detail.component';
+import { MycartsComponent } from './pages/mycarts/mycarts.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { MovieDetailComponent } from './pages/movie-detail/movie-detail.componen
     PeliculasListadoComponent,
     CarritoComponent,
     MoviesListComponent,
-    MovieDetailComponent
+    MovieDetailComponent,
+    MycartsComponent
   ],
   imports: [
     BrowserModule,

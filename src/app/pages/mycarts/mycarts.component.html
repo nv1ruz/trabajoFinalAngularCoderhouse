@@ -1,0 +1,26 @@
+<p class="section-titulo">Mis pedidos</p>
+
+<div class="table-basic-wrapper table-color">
+    <table class="table-basic">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Realizado el</th>
+                <th>N° películas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cart of this.carts">
+                <td>
+                    <span>{{ cart.id }}</span>
+                </td>
+                <td>
+                    <span>{{ cart.createdAt | date: 'dd/MM/yyyy hh:mm' }}</span>
+                </td>
+                <td>
+                    <span>{{ cart.movies.length }}</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

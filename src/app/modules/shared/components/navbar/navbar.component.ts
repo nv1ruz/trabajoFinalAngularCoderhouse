@@ -15,15 +15,23 @@ export class NavbarComponent implements OnInit {
 
     ngOnInit(): void {}
 
-    irHome(): void {
-        this.router.navigateByUrl('');
-    }
-
     irCarrito(): void {
         this.router.navigateByUrl('cart');
     }
 
-    public goToAdmin(): void {
-        this.router.navigateByUrl('admin');
+    public goToAdminMovies(): void {
+        this.router.navigateByUrl('admin/movies');
+    }
+
+    public goToMyCarts(): void {
+        this.router.navigateByUrl('my_carts');
+    }
+
+    public goToHome(): void {
+        this.router.navigateByUrl('');
+    }
+
+    public goToAdminAllCarts(): void {
+        this.router.navigateByUrl('admin/all_carts');
     }
 }

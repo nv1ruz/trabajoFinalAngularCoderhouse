@@ -1,22 +1,41 @@
-.section-titulo{
+.section-titulo {
     font-size: 22px;
     font-weight: 600;
-    color: #FFF;
+    color: #fff;
     margin: 10px 0;
 }
 
-.btn-delete{
+.btn-delete {
     padding: 0 10px;
     height: 35px;
     border: 0;
     border-radius: 4px;
-    color: #D63333;
+    color: #d63333;
     font-weight: 700;
     background-color: transparent;
     cursor: pointer;
     transition: all 100ms ease-in-out;
 }
-.btn-delete:hover{
-    color: #FFF;
-    background-color: #D83232;
+.btn-delete:hover {
+    color: #fff;
+    background-color: #d83232;
+}
+
+.btn-create {
+    padding: 0 10px;
+    height: 35px;
+    border: 0;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: 700;
+    background-color: #4e995a;
+    cursor: pointer;
+    transition: all 100ms ease-in-out;
+}
+.btn-create:hover {
+    background-color: #4ba059;
+}
+.btn-create:disabled {
+    color: #666;
+    background-color: transparent;
 }

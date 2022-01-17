@@ -28,3 +28,9 @@
         </tbody>
     </table>
 </div>
+
+<button class="btn-create mt-10" 
+    (click)="this._carritoService.realizarCompra()" 
+    [disabled]="this._carritoService.carrito.productos.length == 0">
+    Realizar compra
+</button>
