@@ -18,29 +18,22 @@ import { MoviesListComponent } from './pages/movies-list/movies-list.component';
 import { MovieDetailComponent } from './pages/movie-detail/movie-detail.component';
 import { MycartsComponent } from './pages/mycarts/mycarts.component';
 
-
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    LoginComponent,
-    RegistroComponent,
-    AutenticacionComponent,
-    PeliculaDetalleComponent,
-    PeliculasListadoComponent,
-    CarritoComponent,
-    MoviesListComponent,
-    MovieDetailComponent,
-    MycartsComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    SharedModule,
-    HttpClientModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        LoginComponent,
+        RegistroComponent,
+        AutenticacionComponent,
+        PeliculaDetalleComponent,
+        PeliculasListadoComponent,
+        CarritoComponent,
+        MoviesListComponent,
+        MovieDetailComponent,
+        MycartsComponent,
+    ],
+    imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, SharedModule, HttpClientModule],
+    providers: [],
+    bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,0 +1,51 @@
+/* 
+    ALERT
+*/
+
+.alert {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    color: #fff;
+    background: #24272e;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.alert__message {
+    display: flex;
+}
+.alert__button {
+    position: absolute;
+    right: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    height: 42px;
+    width: 42px;
+    color: inherit;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 8px;
+}
+.alert--success {
+    color: #d4edda;
+    background-color: #155724;
+    border-color: #136325;
+}
+.alert--danger {
+    color: #f8d7da;
+    background-color: #721c24;
+    border-color: #7e1923;
+}
+.alert--info {
+    color: #cce5ff;
+    background-color: #004085;
+    border-color: #004792;
+}
+.alert--warning {
+    color: #ffcb7d;
+    background-color: #6c4e36;
+    border-color: #fe8724;
+}

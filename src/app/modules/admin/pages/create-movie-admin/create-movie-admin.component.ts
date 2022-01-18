@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { IMovieDataCreate } from 'src/app/data/interfaces/movies-api.interface';
 import { MoviesApiService } from 'src/app/data/services/movies-api.service';
+import { ToastNotificationService } from 'src/app/modules/shared/components/toast-notification/toast-notification.service';
 
 @Component({
     selector: 'app-create-movie-admin',
@@ -23,7 +24,8 @@ export class CreateMovieAdminComponent implements OnInit {
     constructor(
         private fb: FormBuilder,
         private _moviesApi: MoviesApiService,
-        private router: Router
+        private router: Router,
+        private _toastNotification: ToastNotificationService
     ) {}
 
     ngOnInit(): void {}
@@ -46,6 +48,12 @@ export class CreateMovieAdminComponent implements OnInit {
                 .createMovie(data)
                 .subscribe((response) => {
                     console.log(response);
+                    this._toastNotification.showNotification({
+                        title: 'Éxito!',
+                        message: 'Película creada correctamente',
+                        type: 'success',
+                        timeout: 7000,
+                    });
                     this.goBack();
                 });
         }

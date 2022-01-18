@@ -4,6 +4,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { IMovieDataUpdate } from 'src/app/data/interfaces/movies-api.interface';
 import { MoviesApiService } from 'src/app/data/services/movies-api.service';
+import { ToastNotificationService } from 'src/app/modules/shared/components/toast-notification/toast-notification.service';
 
 @Component({
     selector: 'app-edit-movie-admin',
@@ -28,7 +29,8 @@ export class EditMovieAdminComponent implements OnInit {
         private route: ActivatedRoute,
         private router: Router,
         private fb: FormBuilder,
-        private _moviesApi: MoviesApiService
+        private _moviesApi: MoviesApiService,
+        private _toastNotification: ToastNotificationService
     ) {}
 
     ngOnInit(): void {
@@ -75,6 +77,12 @@ export class EditMovieAdminComponent implements OnInit {
                 .updateMovie(data)
                 .subscribe((response) => {
                     console.log(response);
+                    this._toastNotification.showNotification({
+                        title: 'Éxito!',
+                        message: 'Película actualizada correctamente',
+                        type: 'success',
+                        timeout: 7000,
+                    });
                     this.goBack();
                 });
         }
